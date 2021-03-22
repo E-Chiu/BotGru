@@ -7,6 +7,10 @@ import datetime # for getting date and time
 import random # for random
 import os # to have access to directory
 
+### TO A FUTURE ME: ###
+### DON'T FORGET TO MOVE BOTGRU.DB IN YOUR SERVER SOMEWHERE ELSE
+### BEFORE PULING OR YOU WILL OVERWRITE THE DB!!!
+
 client = discord.Client() # start discord client
 random.seed() # seed random
 months = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
