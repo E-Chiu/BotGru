@@ -5,3 +5,5 @@
 </br>This bot features a database that you save reminders and events to, and will message you when it's time to remind you of said reminder/event. It also has a digest feature to remind you of events you may have every day/week/month. So add this bot to a server and/or dm him now, and try it out today!
 
 </br>(Don't put private information and whatnot and also im not responsible for me accidentally messing up the database at any time and having to scrap it)
+
+</br> add bot to server to use or dm him: https://discord.com/api/oauth2/authorize?client_id=822255901050142750&permissions=3959942208&scope=bot
