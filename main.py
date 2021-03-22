@@ -37,18 +37,17 @@ async def on_message(message):
             # its gonna look scuffed but discord wants me to have one long line :)
             await message.channel.send("----------HELP----------\nTo get additional description, type" + pre + "help " + pre + "[command]\n" + pre + "cal: Personal calendar you can add events to and will remind you\n" + pre + "note: Save text or have a timed message be sent to you\n" + pre + "gru: Gru\n" + pre + "settings: set user settings\n" + pre + "patch: see patch notes\n" + pre + "register: register yourself first time you add the bot")
         elif helpCommand == pre + "cal":
-            await message.channel.send("----------CAL----------\n" + pre + "cal show cal [yyyy]-[mm]: Show your current calendar for yyyy year, mm month. To show all do " + pre + "cal show 0000-00\n" + pre + "cal add [name]: Start a new event to your calendar\n" + pre + "cal del [ID]: Remove an event from your calendar\n" + pre + "cal edit [ID]: Change something about an event\n" + pre + "cal clear [yyyy]-[mm]: Clear the whole calandar for yyyy year, mm month")
+            await message.channel.send("----------CAL----------\n```" + pre + "cal show cal [yyyy]-[mm]```: Show your current calendar for yyyy year, mm month. To show all do ```" + pre + "cal show 0000-00```\n```" + pre + "cal add [name]```: Start a new event to your calendar\n```" + pre + "cal del [ID]```: Remove an event from your calendar\n```" + pre + "cal edit [ID]```: Change something about an event\n```" + pre + "cal clear [yyyy]-[mm]```: Clear the whole calandar for yyyy year, mm month")
         elif helpCommand == pre + "note":
-            await message.channel.send("----------NOTE----------\n" + pre + "note show: Show all your current notes\n" + pre + "note add [note]: Add a note to your notebook\n" + pre + "note reminder [timer (minutes)]; [note]: Add a timed reminder to your notebook\n" + pre + "note del [ID]: delete a note from your notebook\n" + pre + "note clear: delete all your notes")
+            await message.channel.send("----------NOTE----------\n```" + pre + "note show```: Show all your current notes\n```" + pre + "note add [note]```: Add a note to your notebook\n```" + pre + "note reminder [timer (minutes)]; [note]```: Add a timed reminder to your notebook\n```" + pre + "note del [ID]```: delete a note from your notebook\n```" + pre + "note clear```: delete all your notes")
         elif helpCommand == pre + "register":
-            await message.channel.send("----------REGISTER----------",
-            pre + "register: type this to register yourself the first time you use this bot")
+            await message.channel.send("----------REGISTER----------\n```" +pre + "register```: type this to register yourself the first time you use this bot")
         elif helpCommand == pre + "gru":
             await message.channel.send("Gru")
         elif helpCommand == pre + "settings":
-            await message.channel.send("----------SETTINGS----------\n" + pre + "settings digest (n,d[x],w,m): set how frequent you get digests (none, days, week, month)")
+            await message.channel.send("----------SETTINGS----------\n```" + pre + "settings digest (n,d[x],w,m)```: set how frequent you get digests (none, days, week, month)\n```" + pre + "report [feedback]```: submit a report that gets dmed to maker")
         elif helpCommand == pre + "patch":
-            await message.channel.send("VER 0.1: I'm still coding this shit :)")
+            await message.channel.send("```VER 1.0```: Basic functionality added. Started spamming people to test it with me :)")
 
     if message.content.startswith(pre + 'cal'):
         if message.content.startswith(pre + "cal show"): # show events for month if exists
@@ -297,6 +296,11 @@ async def on_message(message):
                 message.channel.send("Digest settings changed!")
             else:
                 message.channel.send("Hmm, looks like some input was wrong")
+        elif message.content.startswith(pre + 'settings report'):
+            feedback = message.content[16:]
+            user = await client.fetch_user(importantFile.adminID)
+            await user.send("FEEDBACK FROM " + user.name + ":" + feedback)
+            await message.channel.send("Feedback sent. Thanks for your help!")
 
     Conn.commit() # commit any db changes
     Conn.close() # close db
