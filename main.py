@@ -390,7 +390,7 @@ async def check_reminders():
                     if len(events) == 0:    
                         await user.send("Hello" + rows[i][3] + "! Today is " + timeCurr + ". You have no events " + freq[0] + ", have a good " + freq[1] + "!")
                     else:
-                        await user.send("Hello" + rows[i][3] + ! Today is " + timeCurr + ". You have the following events " + freq[0] + ":")
+                        await user.send("Hello" + rows[i][3] + "! Today is " + timeCurr + ". You have the following events " + freq[0] + ":")
                         for i in range(len(events)):
                             await user.send(events[i][1])
                         await user.send("Don't forget to use" + pre + "cal show if you need details. Have a good " + freq[1] + "!")
