@@ -289,9 +289,11 @@ async def on_message(message):
                 if digestSet == 'd':
                     nextDigest = (datetime.datetime.now() + datetime.timedelta(days=1)).strftime("%Y-%m-%d") + " 02:00"
                 elif digestSet == 'w':
-                    nextDigest = (datetime.datetime.now + datetime.timedelta(weeks=1)).strftime("%Y-%m-%d") + " 02:00"
+                    nextDigest = (datetime.datetime.now() + datetime.timedelta(weeks=1)).strftime("%Y-%m-%d") + " 02:00"
                 elif digestSet == 'm':
-                    nextDigest = (datetime.datetime.now + datetime.timedelta(months=1)).strftime("%Y-%m") + "-00 02:00"
+                    nextDigest = (datetime.datetime.now() + datetime.timedelta(months=1)).strftime("%Y-%m") + "-00 02:00"
+                else:
+                    nextDigest = '-1'
                 c.execute('''
                     UPDATE users
                     SET digestType = ?,
