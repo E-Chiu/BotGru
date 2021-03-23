@@ -300,9 +300,9 @@ async def on_message(message):
                     nextDigest = ?
                     WHERE uid = ?
                 ''', (digestSet, nextDigest, userID,))
-                message.channel.send("Digest settings changed!")
+                await message.channel.send("Digest settings changed!")
             else:
-                message.channel.send("Hmm, looks like some input was wrong")
+                await message.channel.send("Hmm, looks like some input was wrong")
         elif message.content.startswith(pre + 'settings report'):
             feedback = message.content[16:]
             user = await client.fetch_user(importantFile.adminID)
