@@ -40,8 +40,8 @@ async def on_message(message):
         helpCommand = message.content[6:]
         if helpCommand == '': # if no following text show general help
             # its gonna look scuffed but discord wants me to have one long line :)
-            await message.channel.send("----------HELP----------\nTo get additional description, type" + pre + "help " + pre + "[command]\n" + pre + "cal: Personal calendar you can add events to and will remind you\n" + pre + "note: Save text or have a timed message be sent to you\n" + pre + "gru: Gru\n" + pre + "settings: set user settings\n" + pre + "patch: see patch notes\n" + pre + "register: register yourself first time you add the bot")
-        elif helpCommand == pre + "cal":
+            await message.channel.send("----------HELP----------\nTo get additional description, type`" + pre + "help " + pre + "[command]`\n`" + pre + "cal`: Personal calendar you can add events to and will remind you\n`" + pre + "note`: Save text or have a timed message be sent to you\n`" + pre + "gru`: Gru\n`" + pre + "settings`: set user settings\n`" + pre + "patch`: see patch notes\n`" + pre + "register`: register yourself first time you add the bot")
+        elif helpCommand == "pre + "cal":
             await message.channel.send("----------CAL----------\n`" + pre + "cal show cal [yyyy]-[mm]`: Show your current calendar for yyyy year, mm month. To show all do `" + pre + "cal show 0000-00`\n`" + pre + "cal add [name]`: Start a new event to your calendar\n`" + pre + "cal del [ID]`: Remove an event from your calendar\n`" + pre + "cal edit [ID]`: Change something about an event\n`" + pre + "cal clear [yyyy]-[mm]`: Clear the whole calandar for yyyy year, mm month")
         elif helpCommand == pre + "note":
             await message.channel.send("----------NOTE----------\n`" + pre + "note show`: Show all your current notes\n`" + pre + "note add [note]`: Add a note to your notebook\n`" + pre + "note reminder [timer (minutes)]; [note]`: Add a timed reminder to your notebook\n`" + pre + "note del [ID]`: delete a note from your notebook\n`" + pre + "note clear`: delete all your notes")
