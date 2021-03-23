@@ -304,7 +304,8 @@ async def on_message(message):
         elif message.content.startswith(pre + 'settings report'):
             feedback = message.content[16:]
             user = await client.fetch_user(importantFile.adminID)
-            await user.send("FEEDBACK FROM " + user.name + ":" + feedback)
+            feedbacker = await client.fetch_user(message.author.id)
+            await user.send("FEEDBACK FROM " + feedbacker.name + ":" + feedback)
             await message.channel.send("Feedback sent. Thanks for your help!")
 
     Conn.commit() # commit any db changes
