@@ -50,9 +50,9 @@ async def on_message(message):
         elif helpCommand == pre + "gru":
             await message.channel.send("Gru")
         elif helpCommand == pre + "settings":
-            await message.channel.send("----------SETTINGS----------\n`" + pre + "settings digest (n,d[x],w,m)`: set how frequent you get digests (none, days, week, month)\n`" + pre + "report [feedback]`: submit a report that gets dmed to maker")
+            await message.channel.send("----------SETTINGS----------\n`" + pre + "settings digest (n,d,w,m)`: set how frequent you get digests (none, days, week, month)\n`" + pre + "settings report [feedback]`: submit a report that gets dmed to bot programmer")
         elif helpCommand == pre + "patch":
-            await message.channel.send("`VER 1.01`: Basic functionality added. Started spamming people to test it with me :)")
+            await message.channel.send("`VER 1.02`: Basic functionality added. Started spamming people to test it with/for me. Small changes to the formatting of messages every now and again.")
 
     if message.content.startswith(pre + 'cal'):
         if message.content.startswith(pre + "cal show"): # show events for month if exists
@@ -392,9 +392,9 @@ async def check_reminders():
                         ''', ((datetime.datetime.now() + datetime.timedelta(months=1)).strftime("%Y-%m-%d %H:%M"), rows[i][0],))
                     # print digest or lack thereof
                     if len(events) == 0:    
-                        await user.send("Hello" + rows[i][3] + "! Today is " + timeCurr + ". You have no events " + freq[0] + ", have a good " + freq[1] + "!")
+                        await user.send("Hello " + rows[i][3] + "! Today is " + timeCurr + ". You have no events " + freq[0] + ", have a good " + freq[1] + "!")
                     else:
-                        await user.send("Hello" + rows[i][3] + "! Today is " + timeCurr + ". You have the following events " + freq[0] + ":")
+                        await user.send("Hello " + rows[i][3] + "! Today is " + timeCurr + ". You have the following events " + freq[0] + ":")
                         for i in range(len(events)):
                             await user.send(events[i][1])
                         await user.send("Don't forget to use" + pre + "cal show if you need details. Have a good " + freq[1] + "!")
