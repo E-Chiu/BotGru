@@ -15,6 +15,7 @@ client = discord.Client() # start discord client
 random.seed() # seed random
 months = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 pre = '~' #prefix to use for commands
+filename = '%s\\botgru.db;' % os.getcwd()
 
 @client.event
 async def on_ready(): # called when bot is ready to be used
@@ -25,7 +26,7 @@ async def on_ready(): # called when bot is ready to be used
 
 @client.event
 async def on_message(message):
-    Conn = sqlite3.connect('./botgru.db') # open database
+    Conn = sqlite3.connect(filename) # open database
     c = Conn.cursor() # make cursor for db
     userID = message.author.id # id of who sent message
 
@@ -313,7 +314,7 @@ async def on_message(message):
 async def check_reminders():
     await client.wait_until_ready()
     while True:
-        Conn = sqlite3.connect('./botgru.db') # open database
+        Conn = sqlite3.connect(filename) # open database
         c = Conn.cursor() # make cursor for db
         await client.wait_until_ready()
         timeCurr = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
