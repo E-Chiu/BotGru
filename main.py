@@ -15,7 +15,7 @@ client = discord.Client() # start discord client
 random.seed() # seed random
 months = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 pre = '~' #prefix to use for commands
-filename = '%s\\botgru.db;' % os.getcwd()
+filename = '%s\\botgru.db' % os.getcwd()
 
 @client.event
 async def on_ready(): # called when bot is ready to be used
