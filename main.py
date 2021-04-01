@@ -7,6 +7,14 @@ import datetime # for getting date and time
 import random # for random
 import os # to have access to directory
 
+# TODO
+# add option to set time for digest
+# have time for calendar events, ping them when its time
+# have option to ping user after patch notes (and also disable the option)
+# make sure you must be registered before doing anything
+# figure out that color card thing bots can send and use 
+
+
 client = discord.Client() # start discord client
 random.seed() # seed random
 months = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -310,8 +318,6 @@ async def on_message(message):
 
         Conn.commit() # commit any db changes
         Conn.close() # close db
-    else:
-        await message.channel.send("The bot is currently under maintenance. Sorry for any inconvenience!")
 
 @client.event
 async def check_reminders():
