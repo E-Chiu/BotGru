@@ -21,7 +21,6 @@ random.seed() # seed random
 months = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 pre = '~' #prefix to use for commands
 filename = '%s/botgru.db' % os.getcwd()
-testMode = True
 
 @client.event
 async def on_ready(): # called when bot is ready to be used
@@ -32,16 +31,15 @@ async def on_ready(): # called when bot is ready to be used
 
 @client.event
 async def on_message(message):
-    if not testMode:
-        Conn = sqlite3.connect(filename) # open database
-        c = Conn.cursor() # make cursor for db
-        userID = message.author.id # id of who sent message
+    Conn = sqlite3.connect(filename) # open database
+    c = Conn.cursor() # make cursor for db
+    userID = message.author.id # id of who sent message
 
-        if message.author == client.user: # if the message is sent from the bot do nothing
-            return
+    if message.author == client.user: # if the message is sent from the bot do nothing
+        return
 
-        if message.content.startswith('-test'):
-            await message.channel.send('`Bot is working`')
+    if message.content.startswith('-test'):
+        await message.channel.send('`Bot is working`')
 
     if message.content.startswith(pre + 'help'):
         helpCommand = message.content[6:]
