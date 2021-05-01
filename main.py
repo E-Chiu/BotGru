@@ -42,6 +42,7 @@ async def on_message(message):
         if message.content.startswith('-test'):
             await message.channel.send('`Bot is working`')
 
+<<<<<<< HEAD
         if message.content.startswith(pre + 'help'):
             helpCommand = message.content[6:]
             if helpCommand == '': # if no following text show general help
@@ -59,6 +60,25 @@ async def on_message(message):
                 await message.channel.send("----------SETTINGS----------\n`" + pre + "settings digest (n,d,w,m)`: set how frequent you get digests (none, days, week, month)\n`" + pre + "settings report [feedback]`: submit a report that gets dmed to bot programmer")
             elif helpCommand == pre + "patch":
                 await message.channel.send("`VER 1.02`: Basic functionality added. Started spamming people to test it with/for me. Small changes to the formatting of messages every now and again.")
+=======
+    if message.content.startswith(pre + 'help'):
+        helpCommand = message.content[6:]
+        if helpCommand == '': # if no following text show general help
+            # its gonna look scuffed but discord wants me to have one long line :)
+            await message.channel.send("----------HELP----------\nTo get additional description, type`" + pre + "help " + pre + "[command]`\n`" + pre + "cal`: Personal calendar you can add events to and will remind you\n`" + pre + "note`: Save text or have a timed message be sent to you\n`" + pre + "gru`: Gru\n`" + pre + "settings`: set user settings\n`" + pre + "patch`: see patch notes\n`" + pre + "register`: register yourself first time you add the bot")
+        elif helpCommand == pre + "cal":
+            await message.channel.send("----------CAL----------\n`" + pre + "cal show cal [yyyy]-[mm]`: Show your current calendar for yyyy year, mm month. To show all do `" + pre + "cal show 0000-00`\n`" + pre + "cal add [name]`: Start a new event to your calendar\n`" + pre + "cal del [ID]`: Remove an event from your calendar\n`" + pre + "cal edit [ID]`: Change something about an event\n`" + pre + "cal clear [yyyy]-[mm]`: Clear the whole calandar for yyyy year, mm month")
+        elif helpCommand == pre + "note":
+            await message.channel.send("----------NOTE----------\n`" + pre + "note show`: Show all your current notes\n`" + pre + "note add [note]`: Add a note to your notebook\n`" + pre + "note reminder [timer (minutes)]; [note]`: Add a timed reminder to your notebook\n`" + pre + "note del [ID]`: delete a note from your notebook\n`" + pre + "note clear`: delete all your notes")
+        elif helpCommand == pre + "register":
+            await message.channel.send("----------REGISTER----------\n`" +pre + "register`: type this to register yourself the first time you use this bot")
+        elif helpCommand == pre + "gru":
+            await message.channel.send("Gru")
+        elif helpCommand == pre + "settings":
+            await message.channel.send("----------SETTINGS----------\n`" + pre + "settings digest (n,d[x],w,m)`: set how frequent you get digests (none, days, week, month)\n`" + pre + "report [feedback]`: submit a report that gets dmed to maker")
+        elif helpCommand == pre + "patch":
+            await message.channel.send("`VER 1.01`: Basic functionality added. Started spamming people to test it with me :)")
+>>>>>>> parent of c219f58 (V1.02)
 
         if message.content.startswith(pre + 'cal'):
             if message.content.startswith(pre + "cal show"): # show events for month if exists
@@ -398,9 +418,9 @@ async def check_reminders():
                         ''', ((datetime.datetime.now() + datetime.timedelta(months=1)).strftime("%Y-%m-%d %H:%M"), rows[i][0],))
                     # print digest or lack thereof
                     if len(events) == 0:    
-                        await user.send("Hello " + rows[i][3] + "! Today is " + timeCurr + ". You have no events " + freq[0] + ", have a good " + freq[1] + "!")
+                        await user.send("Hello" + rows[i][3] + "! Today is " + timeCurr + ". You have no events " + freq[0] + ", have a good " + freq[1] + "!")
                     else:
-                        await user.send("Hello " + rows[i][3] + "! Today is " + timeCurr + ". You have the following events " + freq[0] + ":")
+                        await user.send("Hello" + rows[i][3] + "! Today is " + timeCurr + ". You have the following events " + freq[0] + ":")
                         for i in range(len(events)):
                             await user.send(events[i][1])
                         await user.send("Don't forget to use" + pre + "cal show if you need details. Have a good " + freq[1] + "!")
